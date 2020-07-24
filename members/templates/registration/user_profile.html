@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>User Profile</h1>
+
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-2">
+            {% if page_user.profile.profile_pic.url %}
+                <img src="{{ page_userprofile.profile_pic.url }}" class="card-img" width=200 height=200>
+            {% else %}
+                <img src="{% static 'simpleblog/images/admin.png' %}" class="card-img" width=200 height=200>
+            {% endif %}
+
+        </div>
+        <div class="col-md-10">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ page_user.first_name }}
+                    {{ page_user.last_name }}
+                </h5>
+                <p class="small text-muted">
+
+                    {% if page_user.website_url %}
+                        | <a href="{{ page_user.website_url }}">Website</a> |
+                    {% endif %}
+                    {% if page_user.facebook_url %}
+                        <a href="{{ post.author.profile.facebook_url }}">Facebook</a> |
+                    {% endif %}
+                    {% if page_user.instagram_url %}
+                        <a href="{{ page_user.instagram_url }}">Instagram</a> |
+                    {% endif %}
+                    {% if page_user.linkedIn_url %}
+                        <a href="{{ page_user.linkedIn_url }}">LinkedIn</a> 
+                    {% endif %}
+                    
+                </p>
+                <p class="card-text">
+                    {{ page_user.bio }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

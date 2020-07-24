@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Create A New Blog Category{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h1>Add Category</h1>
+    <br/><br/>
+    <div class="form-group">
+        <form method = "POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Category</button>
+        </form>
+    </div>
+
+{% else %}
+
+You are not allowed here..
+
+{% endif %}
+
+{% endblock %}
