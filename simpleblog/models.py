@@ -56,7 +56,7 @@ class Post(models.Model):
         return reverse('home')
 
 class Profile(models.Model):
-    profile_pic       =  models.ImageField(upload_to=upload_location, null=False, blank=False)
+    profile_pic       =  models.ImageField(null=True, blank=True)
     user              =  models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     username          =  models.CharField(max_length=255)
     bio               =  models.TextField()
