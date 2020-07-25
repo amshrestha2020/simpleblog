@@ -36,7 +36,7 @@ class EditForm(forms.ModelForm):
 
 class CommentForm(forms.ModelForm):
     class Meta:
-        model     = Post
+        model     = Comment
         fields    = ('name', 'body')
 
         widget    = {
